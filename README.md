@@ -27,13 +27,26 @@ Include in your HTML
       </ol>
     </div>
 
-Sample usege
+Sample usage
 
     <script>
-      var sfc = new SimpleFlipClock(document.querySelector('.sfc-number'), 0);
+      var sfc = new SimpleFlipClock({element: document.querySelector('.sfc-number'), currentNumber: 0});
       sfc.decrement();
     </script>
 
 ![result](https://i.gyazo.com/8925a6b8f2d4d82ee9b4307a25e48017.gif)
 
-[DEMO](https://brainly.github.io/simple-flip-clock/).
+Parameters:
+
+    element: dom node with basic structure as specified above
+    currentNumber: currently displayed number - need when method `increment` or `decrement` will be used
+    maxNumber: maximal number that can be displayed - need when method `increment` or `decrement` will be used
+    minNumber: minimal number that can be displayed - need when method `increment` or `decrement` will be used
+    
+Methods
+        
+    update(number) - updates currently displayed number to provided one
+    decrement - decrements currently displayed number by 1
+    increment - increments currently displayed number by 1
+        
+[DEMO](https://brainly.github.io/simple-flip-clock/)
