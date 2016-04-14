@@ -35,3 +35,5 @@ Sample usege
     </script>
 
 ![result](https://i.gyazo.com/8925a6b8f2d4d82ee9b4307a25e48017.gif)
+
+[DEMO](https://brainly.github.io/simple-flip-clock/).
