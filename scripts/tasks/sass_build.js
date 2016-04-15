@@ -1,6 +1,6 @@
 module.exports = function(gulp, plugins, config) {
   return function() {
-    return gulp.src(plugins.path.join(config.sassSrcPath, '**', '*.scss'))
+    return gulp.src(plugins.path.join(config.componentsPath, '**', '*.scss'))
       .pipe(plugins.if(!config.isProductionBuild, plugins.sourcemaps.init()))
       .pipe(plugins.sass({
         outputStyle: 'compressed',
@@ -12,7 +12,10 @@ module.exports = function(gulp, plugins, config) {
         cascade: false
       }))
       .pipe(plugins.if(!config.isProductionBuild, plugins.sourcemaps.write('.')))
-      .pipe(gulp.dest(config.cssDistPath))
+      .pipe(plugins.rename(function(path) {
+        path.dirname = plugins.path.join(path.dirname, config.cssDistRelativePath);
+      }))
+      .pipe(gulp.dest(config.componentsPath))
       .pipe(plugins.livereload());
   };
 };
