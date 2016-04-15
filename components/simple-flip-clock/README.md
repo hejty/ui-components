@@ -49,4 +49,4 @@ Methods
     decrement - decrements currently displayed number by 1
     increment - increments currently displayed number by 1
         
-[DEMO](https://brainly.github.io/simple-flip-clock/)
+[DEMO](https://brainly.github.io/ui-components/components/simple-flip-clock/)
