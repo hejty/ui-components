@@ -1,7 +1,7 @@
 module.exports = {
   getConfig(watch, plugins, config) {
     const glob = require('glob');
-    const files = glob.sync('components/**/src/**/*.js');
+    const files = glob.sync('components/**/src/js/main.js');
     const entry = {};
 
     files.forEach(path => {
