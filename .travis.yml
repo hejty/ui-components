@@ -4,6 +4,7 @@ node_js:
   - "4.1"
 
 before_install:
+  - rvm install 2.2.2
   - gem install scss_lint --no-rdoc --no-ri
 
 script:
