@@ -1,7 +1,9 @@
 $sfcFontFamily: Arial !default;
-$sfcFontColor: #ffffff;
-$sfcFontSize: 60px;
+$sfcFontColorUp: #ffffff !default;
+$sfcFontColorDown: #eeffff !default;
+$sfcFontSize: 60px !default;
 $sfcNumberBoxHeight: 90px !default;
+$sfcNumberLineHeight: 90px !default;
 $sfcNumberBoxWidth: 60px !default;
 $sfcUpHalfBackground: #6f85ff !default;
 $sfcDownHalfBackground: #8b9efd !default;
@@ -73,15 +75,16 @@ $sfcDownHalfBackground: #8b9efd !default;
   }
 
   &__digit-full {
-    color: $sfcFontColor;
+    color: $sfcFontColorUp;
     font-size: $sfcFontSize;
-    line-height: $sfcNumberBoxHeight;
+    line-height: $sfcNumberLineHeight;
     display: block;
     height: 200%;
     width: 100%;
     text-align: center;
 
     .sfc-number__down & {
+      color: $sfcFontColorDown;
       margin-top: -($sfcNumberBoxHeight / 2);
     }
   }
