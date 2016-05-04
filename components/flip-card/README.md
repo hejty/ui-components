@@ -20,7 +20,7 @@ Put inside `fc-box__front` and `fc-box__back` container your custom content
 Sample usage
 
     <script>
-      var fc = new FlipCard(element: document.querySelector('.fc-box')});
+      var fc = new FlipCard({element: document.querySelector('.fc-box')});
       fc.flip();
     </script>
 
