@@ -62,4 +62,4 @@ class SimpleFlipClock {
   }
 }
 
-window.SimpleFlipClock  = SimpleFlipClock;
+export default SimpleFlipClock;

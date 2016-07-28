@@ -7,5 +7,4 @@ class FlipCard {
   }
 }
 
-
-window.FlipCard  = FlipCard;
+export default FlipCard;
