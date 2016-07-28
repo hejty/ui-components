@@ -23,7 +23,7 @@ class DashedProgressBar {
     //canvas setup
     this.margin = Math.max(this.startWidth / 2, this.endWidth / 2);
     this.canvas = canvas;
-    const canvasSize = (this.radius * 2 + this.margin * 2);
+    const canvasSize = this.radius * 2 + this.margin * 2;
 
     this.canvas.width = this.canvas.height = canvasSize;
     this.canvas.style.width = this.canvas.style.height = canvasSize / dpi + 'px';

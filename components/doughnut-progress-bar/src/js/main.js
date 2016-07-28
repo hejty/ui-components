@@ -72,7 +72,7 @@ class DoughnutProgressBar {
     const timeStep = 1 / (this.duration / 16);
     let t = 0;
 
-    const drawFrame = (function() {
+    const drawFrame = function() {
       t += timeStep;
 
       if (t < 1) {
@@ -88,7 +88,7 @@ class DoughnutProgressBar {
           finishCallback();
         }
       }
-    }).bind(this);
+    }.bind(this);
 
     requestAnimationFrame(drawFrame);
   }

@@ -24,7 +24,8 @@ function closest(el, sel) {
     if ((el.matches && el.matches(sel)) || (el.matchesSelector && el.matchesSelector(sel))) {
       return el;
     }
-  } while (el = el.parentElement);
+    el = el.parentElement;
+  } while (el);
   return null;
 }
 
@@ -106,7 +107,7 @@ class CardDeck {
     }
   }
 
-  onEnd(evt) {
+  onEnd() {
     if (!this.target) {
       return;
     }
@@ -115,7 +116,7 @@ class CardDeck {
     const screenX = this.currentX - this.startX;
 
     if (Math.abs(screenX) > this.targetBCR.width * 0.35) {
-      this.targetX = (screenX > 0) ? this.targetBCR.width : -this.targetBCR.width;
+      this.targetX = screenX > 0 ? this.targetBCR.width : -this.targetBCR.width;
     }
 
     this.draggingCard = false;
@@ -135,8 +136,7 @@ class CardDeck {
       this.screenX += (this.targetX - this.screenX) / 4;
     }
 
-    const normalizedDragDistance =
-      (Math.abs(this.screenX) / this.targetBCR.width);
+    const normalizedDragDistance = Math.abs(this.screenX) / this.targetBCR.width;
 
     this.target.style.transform = `translateX(${this.screenX}px)`;
 
@@ -145,8 +145,8 @@ class CardDeck {
       return;
     }
 
-    const isNearlyAtStart = (Math.abs(this.screenX) < 0.1);
-    const isNearlyInvisible = (1 - Math.pow(normalizedDragDistance, 3) < 0.01);
+    const isNearlyAtStart = Math.abs(this.screenX) < 0.1;
+    const isNearlyInvisible = 1 - Math.pow(normalizedDragDistance, 3) < 0.01;
 
     // If the card is nearly gone.
     if (isNearlyInvisible) {
