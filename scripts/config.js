@@ -7,5 +7,7 @@ config.isProductionBuild = argv['production-build'] ? true : false;
 config.componentsPath =  path.resolve(config.projectSrcPath, 'components');
 config.cssDistRelativePath =  '../../dist/css';
 config.jsDistRelativePath =  '../../dist/js';
+config.componentRelativePath =  '../../';
+
 
 module.exports = config;

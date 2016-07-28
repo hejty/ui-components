@@ -203,4 +203,4 @@ class CardDeck {
   }
 }
 
-window.CardDeck = CardDeck;
+export default CardDeck;

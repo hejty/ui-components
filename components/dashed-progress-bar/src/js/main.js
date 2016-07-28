@@ -108,4 +108,4 @@ class DashedProgressBar {
   }
 }
 
-window.DashedProgressBar = DashedProgressBar;
+export default DashedProgressBar;

@@ -4,4 +4,4 @@ class Template {
   }
 }
 
-window.Template = Template;
+export default Template;

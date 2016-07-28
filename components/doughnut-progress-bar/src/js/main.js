@@ -94,4 +94,4 @@ class DoughnutProgressBar {
   }
 }
 
-window.DoughnutProgressBar = DoughnutProgressBar;
+export default DoughnutProgressBar;
