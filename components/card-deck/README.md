@@ -27,6 +27,8 @@ Sample usage
 ### Parameters:
 
     element - dom node with basic structure as specified above
+    dragCallback - function called when card is dragged. Contains information about the deck, card being dragged and relative distance from the center of the deck.
+    discardCallback - function called when card is discarded. Contains information about the deck, card being discarded and direction (event.detail.direction).
 
 ### Methods:
 
@@ -34,9 +36,5 @@ Sample usage
     enableDragging() - enable possibility to drag cards using touch/mouse
     swipeCardLeft() - move top card to the bottom of the deck by swiping it to the left
     swipeCardRight() - move top card to the bottom of the deck by swiping it to the right
-
-### Events:
-
-    card-discarded - fired when card is discarded. Contains information about the direction (event.detail.direction) and the card (event.target). Bubbles from the card node.
 
 [DEMO](https://brainly.github.io/ui-components/components/card-deck/)
