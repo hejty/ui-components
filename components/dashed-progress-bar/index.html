@@ -157,7 +157,7 @@ Draw the progress bar and call `callback` when animation finishes.
   });
 
   function change(pbar) {
-    pbar.tileColors = [];
+    pbar.clearTiles();
 
     var tiles1 = Math.round(pbar.tiles * Math.random());
     var tiles2 = Math.round((pbar.tiles - tiles1) * Math.random());
@@ -165,7 +165,7 @@ Draw the progress bar and call `callback` when animation finishes.
     pbar.addTiles(tiles2, '#ffbe32');
 
     pbar.animate(function () {
-      setTimeout(change.bind(null, pbar), 1000);
+      //setTimeout(change.bind(null, pbar), 1000);
     });
   }
 
