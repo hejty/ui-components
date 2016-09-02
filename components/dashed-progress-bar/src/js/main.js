@@ -104,7 +104,9 @@ class DashedProgressBar {
       requestAnimationFrame(draw);
     };
 
-    requestAnimationFrame(draw);
+    if (this.tileColors.length > 0) {
+      requestAnimationFrame(draw);
+    }
   }
 }
 
