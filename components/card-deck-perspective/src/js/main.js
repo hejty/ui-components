@@ -49,15 +49,22 @@ class CardDeckPerspective {
     this.currentX = 0;
     this.screenX = 0;
 
-    this.scatterCards();
+    this.createLayers();
     this.enableDragging();
   }
 
-  scatterCards() {
-    this.cards.forEach(card => {
-      const rotation = Math.round(Math.random() * 4 - 2);
+  createLayers() {
+    const length = this.cards.length;
 
-      card.style.transform = `rotateZ(${rotation}deg)`;
+    this.cards.forEach((card, index) => {
+      if (index === length - 1) {
+        card.classList.remove('cd-card--back-1');
+      } else if (index === length - 2) {
+        card.classList.add('cd-card--back-1');
+        card.classList.remove('cd-card--back-2');
+      } else {
+        card.classList.add('cd-card--back-2');
+      }
     });
   }
 
@@ -221,11 +228,11 @@ class CardDeckPerspective {
 
     const cardWidth = card.getBoundingClientRect().width;
     const midStop = direction === DIRECTION_LEFT ? -cardWidth : cardWidth;
-    const rotation = Math.round(Math.random() * 4 - 2);
     let step = 1;
 
     card.style.transition = 'transform 200ms ease-out';
     card.style.transform = `translateX(${midStop}px)`;
+    this.createLayers();
 
     card.addEventListener('transitionend', function animationStep(event) {
       if (event.target !== card) {
@@ -234,11 +241,11 @@ class CardDeckPerspective {
 
       if (step === 1) { // slide in
         card.style.transition = 'transform 300ms ease-out';
-        card.style.transform = 'translateX(0) scale(0.9)';
+        card.style.transform = 'translateX(0) scale(0.8)';
         card.style.zIndex = 0;
       } else if (step === 2) { // move back up
-        card.style.transition = 'transform 200ms ease-out';
-        card.style.transform = `rotateZ(${rotation}deg) scale(1)`;
+        card.style.transition = '';
+        card.style.transform = '';
       } else if (step === 3) { // cleanup
         const parent = card.parentNode;
 
