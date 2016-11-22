@@ -10,7 +10,8 @@ Include `dist/js/main.min.js` on your page
 
 Include in your HTML
 
-    <div class="carousel">
+     ```
+     <div class="carousel">
       <div class="carousel__viewport">
         <div class="carousel__slider">
           <div class="carousel__slide">
@@ -23,12 +24,14 @@ Include in your HTML
         </div>
       </div>
     </div>
+     ```
 
 Sample usage
-
+    ```
     <script>
       const carousel = new Carousel({element: document.querySelector('.carousel')});
     </script>
+     ```
 
 ![result](https://i.gyazo.com/ed1f1c71054a939d8e53191928a4704d.gif)
 
