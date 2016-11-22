@@ -5,10 +5,10 @@ class Carousel {
 
     this._slideChangeCallback = slideChangeCallback;
 
-    this.slider.style.width = `${this.slidesLength * 100}%`;
-
-    this.sliderWidth = this.slider.getBoundingClientRect().width;
     this.slidesLength = this.slider.children.length;
+    this.slider.style.width = `${this.slidesLength * 100}%`;
+    this._updateSlideWidth();
+
     this.currentIndex = 1;
     this.lastSlideTranslateX = 0;
     this.currentSlideTranslateX = 0;
@@ -21,7 +21,7 @@ class Carousel {
 
     this.enableDragging();
 
-    window.addEventListener('resize', this._updateSliderWidth.bind(this));
+    window.addEventListener('resize', this._updateSlideWidth.bind(this));
   }
 
   next() {
@@ -29,7 +29,6 @@ class Carousel {
       this.goTo(this.currentIndex + 1);
     }
   }
-
 
   prev() {
     if (!this._isFirstSlide()) {
@@ -43,7 +42,7 @@ class Carousel {
     }
 
     this.currentIndex = index;
-    this.slider.style.transform = `translateX(${ -(this.currentIndex - 1) * 100}%)`;
+    this.slider.style.transform = `translateX(${ -(this.currentIndex - 1) * this.slideWidth}px)`;
   }
 
   enableDragging() {
@@ -94,14 +93,14 @@ class Carousel {
 
     this.slider.style.transition = '';
 
-    let index = Math.round(-this.currentSlideTranslateX / 100) + 1;
+    let index = Math.round(-this.currentSlideTranslateX / this.slideWidth) + 1;
 
     index = Math.max(1, index);
     index = Math.min(index, this.slidesLength);
 
     this.goTo(index);
 
-    this.lastSlideTranslateX = ((this.currentIndex - 1) * 100);
+    this.lastSlideTranslateX = this.slideWidth * (this.currentIndex - 1);
 
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
@@ -115,14 +114,14 @@ class Carousel {
 
     const screenX = this.currentX - this.startX;
 
-    this.currentSlideTranslateX = (screenX / (this.sliderWidth) * 100) - this.lastSlideTranslateX;
+    this.currentSlideTranslateX = screenX - this.lastSlideTranslateX;
 
     this.slider.style.transition = 'initial';
-    this.slider.style.transform = `translateX(${this.currentSlideTranslateX}%)`;
+    this.slider.style.transform = `translateX(${this.currentSlideTranslateX}px)`;
   }
 
-  _updateSliderWidth() {
-    this.sliderWidth = this.slider.getBoundingClientRect().width;
+  _updateSlideWidth() {
+    this.slideWidth = this.slider.getBoundingClientRect().width / this.slidesLength;
   }
 
   _isLastSlide() {
