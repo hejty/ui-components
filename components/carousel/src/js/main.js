@@ -12,6 +12,7 @@ class Carousel {
     this.currentIndex = 1;
     this.lastSlideTranslateX = 0;
     this.currentSlideTranslateX = 0;
+    this.isDragged = false;
 
     this._onStart = this._onStart.bind(this);
     this._onMove = this._onMove.bind(this);
@@ -24,27 +25,25 @@ class Carousel {
   }
 
   next() {
-    if (this._isLastSlide()) {
-      this.goTo(this.currentIndex);
-    } else {
-      this.currentIndex++;
-      this._animate();
+    if (!this._isLastSlide()) {
+      this.goTo(this.currentIndex + 1);
     }
   }
 
 
   prev() {
-    if (this._isFirstSlide()) {
-      this.goTo(this.currentIndex);
-    } else {
-      this.currentIndex--;
-      this._animate();
+    if (!this._isFirstSlide()) {
+      this.goTo(this.currentIndex - 1);
     }
   }
 
   goTo(index) {
+    if (index !== this.currentIndex && typeof this._slideChangeCallback === 'function') {
+      this._slideChangeCallback(this, index);
+    }
+
     this.currentIndex = index;
-    this._animate();
+    this.slider.style.transform = `translateX(${ -(this.currentIndex - 1) * 100}%)`;
   }
 
   enableDragging() {
@@ -75,6 +74,7 @@ class Carousel {
   _onStart(event) {
     this.startX = event.pageX || event.touches[0].pageX;
     this.currentX = this.startX;
+    this.isDragged = true;
     this.rafId = requestAnimationFrame(this._update);
   }
 
@@ -88,14 +88,16 @@ class Carousel {
   }
 
   _onEnd() {
+    if (!this.isDragged) {
+      return;
+    }
+
     this.slider.style.transition = '';
 
-    let index = Math.round(-this.currentSlideTranslateX/ 100) + 1;
+    let index = Math.round(-this.currentSlideTranslateX / 100) + 1;
 
     index = Math.max(1, index);
     index = Math.min(index, this.slidesLength);
-
-    const hasIndexChanged = index !== this.currentIndex;
 
     this.goTo(index);
 
@@ -105,9 +107,7 @@ class Carousel {
       cancelAnimationFrame(this.rafId);
     }
 
-    if (hasIndexChanged && typeof this._slideChangeCallback === 'function') {
-      this._slideChangeCallback(this, this.currentIndex);
-    }
+    this.isDragged = false;
   }
 
   _update() {
@@ -131,10 +131,6 @@ class Carousel {
 
   _isFirstSlide() {
     return this.currentIndex === 1;
-  }
-
-  _animate() {
-    this.slider.style.transform = `translateX(${ - (this.currentIndex - 1) * 100}%)`;
   }
 }
 
