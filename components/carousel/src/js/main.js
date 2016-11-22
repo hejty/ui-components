@@ -42,7 +42,7 @@ class Carousel {
     }
 
     this.currentIndex = index;
-    this.slider.style.transform = `translateX(${ -(this.currentIndex - 1) * this.slideWidth}px)`;
+    this.slider.style.transform = `translateX(${-(this.currentIndex - 1) * this.slideWidth}px)`;
   }
 
   enableDragging() {
