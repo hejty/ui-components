@@ -118,7 +118,7 @@ class Carousel {
     this.currentSlideTranslateX = (screenX / (this.sliderWidth) * 100) - this.lastSlideTranslateX;
 
     this.slider.style.transition = 'initial';
-    this.slider.style.transform = `translateX(${(this.currentSlideTranslateX)}%)`;
+    this.slider.style.transform = `translateX(${this.currentSlideTranslateX}%)`;
   }
 
   _updateSliderWidth() {
