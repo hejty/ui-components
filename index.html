@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="components/simple-flip-clock/dist/css/default.css">
   <script src="components/simple-flip-clock/dist/js/main.min.js"></script>
 
+  <link rel="stylesheet" href="components/carousel/dist/css/default.css">
+  <script src="components/carousel/dist/js/main.min.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -229,6 +232,79 @@
   </script>
 
   <!-- CARD DECK END -->
+
+
+  <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+
+  <h2>Carousel</h2>
+  <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/carousel/README.md">Docs</a></p>
+
+  <div class="carousel-container">
+    <div class="sg-box sg-box--lavender sg-box--no-border">
+      <div class="sg-box__hole">
+
+        <div class="carousel">
+          <div class="carousel__viewport">
+            <div class="carousel__slider">
+              <div class="carousel__slide">
+                <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
+                  1st slide
+                </p>
+              </div>
+              <div class="carousel__slide">
+                <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
+                  2nd slide
+                </p>
+              </div>
+              <div class="carousel__slide">
+                <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
+                  Last slide
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel {
+      width: 400px;
+      height: 300px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .carousel__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #6ed6a0;
+    }
+
+    .carousel__slide:nth-child(2) {
+      background-color: #5bb8ff;
+    }
+
+    .carousel__slide:nth-child(3) {
+      background-color: #ff8073;
+    }
+  </style>
+
+  <script>
+    var carousel = new Carousel({element: document.querySelector('.carousel')});
+  </script>
+
+  <!-- CAROUSEL END -->
+
 </main>
 
   <a href="https://github.com/brainly/ui-components/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>

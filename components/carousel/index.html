@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <title>Carousel</title>
+  <link href="dist/css/default.css" rel="stylesheet" media="screen"/>
+  <script src="dist/js/main.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel {
+      width: 400px;
+      height: 300px;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 30px auto;
+      border: 3px solid black;
+    }
+
+    .carousel__slide {
+      background-color: palegoldenrod;
+    }
+
+    .carousel__slide:nth-child(2) {
+      background-color: darkolivegreen;
+    }
+
+    .carousel__slide:nth-child(3) {
+      background-color: navajowhite;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel__viewport">
+    <div class="carousel__slider">
+      <div class="carousel__slide">
+        1st slide
+      </div>
+      <div class="carousel__slide">
+        2nd slide
+      </div>
+      <div class="carousel__slide">
+        Last slide
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<div>
+  API:
+  <button id="js-prev-slide">Previous slide</button>,
+  <button id="js-next-slide">Next card</button>,
+  <button id="js-last-slide">Last slide</button>,
+  <button id="js-disable-dragging">Disable dragging</button>,
+  <button id="js-enable-dragging">Enable dragging</button>
+</div>
+
+<script>
+  var carousel = new Carousel({element: document.querySelector('.carousel'), slideChangeCallback: function(carousel, index) {
+    console.log('slideChangeCallback fired! Slide index equals', index);
+  }});
+
+  var $prevButton = document.getElementById('js-prev-slide');
+  var $nextButton = document.getElementById('js-next-slide');
+  var $lastButton = document.getElementById('js-last-slide');
+  var $disableDraggingButton = document.getElementById('js-disable-dragging');
+  var $enableDraggingButton = document.getElementById('js-enable-dragging');
+
+  $prevButton.addEventListener('click', carousel.prev.bind(carousel));
+  $nextButton.addEventListener('click', carousel.next.bind(carousel));
+  $lastButton.addEventListener('click', carousel.goTo.bind(carousel, 3));
+  $disableDraggingButton.addEventListener('click', carousel.disableDragging.bind(carousel));
+  $enableDraggingButton.addEventListener('click', carousel.enableDragging.bind(carousel));
+
+</script>
+
+<a href="https://github.com/brainly/ui-components/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+</body>
+</html>
