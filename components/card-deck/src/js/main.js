@@ -18,7 +18,7 @@
 
 'use strict';
 
-import closest from "./vendor/closest-polyfil";
+import closest from './vendor/closest-polyfil';
 
 const DIRECTION_LEFT = 'left';
 const DIRECTION_RIGHT = 'right';
