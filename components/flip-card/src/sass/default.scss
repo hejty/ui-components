@@ -1,4 +1,4 @@
-.fc-box {
+.buic-fc-box {
   position: relative;
   perspective: 1000px;
 
@@ -17,27 +17,27 @@
   }
 
   &--flipped {
-    .fc-box__front {
+    .buic-fc-box__front {
       transform: rotateY(180deg);
     }
 
-    .fc-box__back {
+    .buic-fc-box__back {
       transform: rotateY(0deg);
     }
   }
 
   &--vertical {
-    .fc-box__back {
+    .buic-fc-box__back {
       transform: rotateX(-180deg);
     }
   }
 
   &--flipped-vertically {
-    .fc-box__front {
+    .buic-fc-box__front {
       transform: rotateX(180deg);
     }
 
-    .fc-box__back {
+    .buic-fc-box__back {
       transform: rotateX(0deg);
     }
   }

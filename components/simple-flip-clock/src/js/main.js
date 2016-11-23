@@ -5,8 +5,8 @@ class SimpleFlipClock {
     this.maxNumber = maxNumber;
     this.minNumber = minNumber;
 
-    this.upPartDom = element.querySelector('.sfc-number__up');
-    this.downPartDom = element.querySelector('.sfc-number__down');
+    this.upPartDom = element.querySelector('.buic-sfc-number__up');
+    this.downPartDom = element.querySelector('.buic-sfc-number__down');
   }
 
   update(number) {
@@ -22,13 +22,13 @@ class SimpleFlipClock {
 
     this.element.getBoundingClientRect();
 
-    this.upPartDom.children[0].classList.remove('sfc-number__element--active');
-    this.downPartDom.children[0].classList.remove('sfc-number__element--active');
-    this.upPartDom.children[0].classList.add('sfc-number__element--before');
-    this.downPartDom.children[0].classList.add('sfc-number__element--before');
+    this.upPartDom.children[0].classList.remove('buic-sfc-number__element--active');
+    this.downPartDom.children[0].classList.remove('buic-sfc-number__element--active');
+    this.upPartDom.children[0].classList.add('buic-sfc-number__element--before');
+    this.downPartDom.children[0].classList.add('buic-sfc-number__element--before');
 
-    this.upPartDom.children[1].classList.add('sfc-number__element--active');
-    this.downPartDom.children[1].classList.add('sfc-number__element--active');
+    this.upPartDom.children[1].classList.add('buic-sfc-number__element--active');
+    this.downPartDom.children[1].classList.add('buic-sfc-number__element--active');
 
     this.currentNumber = number;
   }
@@ -53,9 +53,9 @@ class SimpleFlipClock {
 
   getNumberElementHtml(number) {
     return `
-        <li class="sfc-number__element">
-          <div class="sfc-number__digit">
-            <div class="sfc-number__digit-full">${number}</div>
+        <li class="buic-sfc-number__element">
+          <div class="buic-sfc-number__digit">
+            <div class="buic-sfc-number__digit-full">${number}</div>
           </div>
         </li>
       `;

@@ -18,7 +18,7 @@
 
 'use strict';
 
-import closest from './vendor/closest-polyfil';
+import closest from "./vendor/closest-polyfil";
 
 const DIRECTION_LEFT = 'left';
 const DIRECTION_RIGHT = 'right';
@@ -33,7 +33,7 @@ class CardDeck {
    */
   constructor({element, discardCallback = null, cancelCallback = null, dragCallback = null}) {
     this.root = element;
-    this.cards = [...this.root.querySelectorAll('.cd-card')];
+    this.cards = [...this.root.querySelectorAll('.buic-cd-card')];
 
     this._discardCallback = discardCallback;
     this._cancelCallback = cancelCallback;
@@ -116,7 +116,7 @@ class CardDeck {
       return;
     }
 
-    const target = closest(evt.target, '.cd-card');
+    const target = closest(evt.target, '.buic-cd-card');
 
     // allow card to be dragged only if it exists and is on the top of the deck
     if (!target || target !== this.getTopCard()) {

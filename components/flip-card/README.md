@@ -8,15 +8,15 @@ Include `dist/css/default.css` and `dist/js/main.min.js` on your page.
 
 Add this basic markup:
 
-    <div class="fc-box">
-        <div class="fc-box__front">your front content goes here</div>
-        <div class="fc-box__back">your back content goes here</div>
+    <div class="buic-fc-box">
+        <div class="buic-fc-box__front">your front content goes here</div>
+        <div class="buic-fc-box__back">your back content goes here</div>
     </div>
 
 For each card create a `FlipCard` object and call `flip` method whenever you want to rotate it.
 
     <script>
-        var fc = new FlipCard({element: document.querySelector('.fc-box')});
+        var fc = new FlipCard({element: document.querySelector('.buic-fc-box')});
         fc.flip();
     </script>
 

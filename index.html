@@ -53,18 +53,18 @@
   <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/simple-flip-clock/README.md">Docs</a></p>
 
   <div style="display: flex; flex-direction: row; align-items: center; align-content: center">
-    <div class="sfc-number">
-      <ol class="sfc-number__up">
-        <li class="sfc-number__element sfc-number__element--active">
-          <div class="sfc-number__digit">
-            <div class="sfc-number__digit-full">0</div>
+    <div class="buic-sfc-number">
+      <ol class="buic-sfc-number__up">
+        <li class="buic-sfc-number__element buic-sfc-number__element--active">
+          <div class="buic-sfc-number__digit">
+            <div class="buic-sfc-number__digit-full">0</div>
           </div>
         </li>
       </ol>
-      <ol class="sfc-number__down">
-        <li class="sfc-number__element sfc-number__element--active">
-          <div class="sfc-number__digit">
-            <div class="sfc-number__digit-full">0</div>
+      <ol class="buic-sfc-number__down">
+        <li class="buic-sfc-number__element buic-sfc-number__element--active">
+          <div class="buic-sfc-number__digit">
+            <div class="buic-sfc-number__digit-full">0</div>
           </div>
         </li>
       </ol>
@@ -78,7 +78,7 @@
   </div>
 
   <script>
-    var sfc = new SimpleFlipClock({element: document.querySelector('.sfc-number'), currentNumber: 0});
+    var sfc = new SimpleFlipClock({element: document.querySelector('.buic-sfc-number'), currentNumber: 0});
     document.getElementById('trigger').addEventListener('click', function () {
       sfc.increment();
     })
@@ -95,27 +95,27 @@
     .wrapper {
       width: 200px;height: 200px;
     }
-    .fc-box {
+    .buic-fc-box {
       width: 100%;
       height: 100%;
     }
-    .fc-box__front,
-    .fc-box__back {
+    .buic-fc-box__front,
+    .buic-fc-box__back {
       width: 100%;
       height: 100%;
     }
 
   </style>
   <div class="wrapper">
-    <div class="fc-box">
-      <div class="fc-box__front sg-box sg-box--no-border sg-box--lavender">
+    <div class="buic-fc-box">
+      <div class="buic-fc-box__front sg-box sg-box--no-border sg-box--lavender">
         <div class="sg-box__hole">
           <p class="sg-text sg-text--light">Front-End is great!</p>
           <br />
           <button class="sg-button-secondary sg-button-secondary--inverse sg-button-secondary--small js-flip-card-button">Flip me!</button>
         </div>
       </div>
-      <div class="fc-box__back sg-box sg-box--no-border sg-box--mint-secondary">
+      <div class="buic-fc-box__back sg-box sg-box--no-border sg-box--mint-secondary">
         <div class="sg-box__hole">
           <p class="sg-text sg-text--light">Back-End is OKish.</p>
           <br />
@@ -126,7 +126,7 @@
 
   </div>
   <script>
-    var fc = new FlipCard({element: document.querySelector('.fc-box')});
+    var fc = new FlipCard({element: document.querySelector('.buic-fc-box')});
     var buttons = Array.prototype.slice.call(document.getElementsByClassName('js-flip-card-button'));
 
     buttons.forEach(function(butt) {
@@ -204,22 +204,22 @@
   <h2>Card Deck</h2>
   <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/card-deck/README.md">Docs</a></p>
 
-  <div class="cd-card-container">
-    <div class="cd-card sg-box"><span class="sg-text">I'm last</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">one more</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">you are almost done</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">out of seven</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">I'm third</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">Oh hi!</span></div>
-    <div class="cd-card sg-box"><span class="sg-text">Swipe me</span></div>
+  <div class="buic-cd-card-container">
+    <div class="buic-cd-card sg-box"><span class="sg-text">I'm last</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">one more</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">you are almost done</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">out of seven</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">I'm third</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">Oh hi!</span></div>
+    <div class="buic-cd-card sg-box"><span class="sg-text">Swipe me</span></div>
   </div>
 
   <style>
-    .cd-card-container {
+    .buic-cd-card-container {
       margin: 20px auto;
     }
 
-    .cd-card {
+    .buic-cd-card {
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -228,7 +228,7 @@
   </style>
 
   <script>
-    const cs = new CardDeck({element: document.querySelector('.cd-card-container')});
+    const cs = new CardDeck({element: document.querySelector('.buic-cd-card-container')});
   </script>
 
   <!-- CARD DECK END -->
@@ -239,24 +239,24 @@
   <h2>Carousel</h2>
   <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/carousel/README.md">Docs</a></p>
 
-  <div class="carousel-container">
+  <div class="buic-carousel-container">
     <div class="sg-box sg-box--lavender sg-box--no-border">
       <div class="sg-box__hole">
 
-        <div class="carousel">
-          <div class="carousel__viewport">
-            <div class="carousel__slider">
-              <div class="carousel__slide">
+        <div class="buic-carousel">
+          <div class="buic-carousel__viewport">
+            <div class="buic-carousel__slider">
+              <div class="buic-carousel__slide">
                 <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
                   1st slide
                 </p>
               </div>
-              <div class="carousel__slide">
+              <div class="buic-carousel__slide">
                 <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
                   2nd slide
                 </p>
               </div>
-              <div class="carousel__slide">
+              <div class="buic-carousel__slide">
                 <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
                   Last slide
                 </p>
@@ -270,19 +270,19 @@
   </div>
 
   <style>
-    .carousel-container {
+    .buic-carousel-container {
       display: flex;
       justify-content: center;
     }
 
-    .carousel {
+    .buic-carousel {
       width: 400px;
       height: 300px;
       max-width: 100%;
       max-height: 100%;
     }
 
-    .carousel__slide {
+    .buic-carousel__slide {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -290,17 +290,17 @@
       background-color: #6ed6a0;
     }
 
-    .carousel__slide:nth-child(2) {
+    .buic-carousel__slide:nth-child(2) {
       background-color: #5bb8ff;
     }
 
-    .carousel__slide:nth-child(3) {
+    .buic-carousel__slide:nth-child(3) {
       background-color: #ff8073;
     }
   </style>
 
   <script>
-    var carousel = new Carousel({element: document.querySelector('.carousel')});
+    var carousel = new Carousel({element: document.querySelector('.buic-carousel')});
   </script>
 
   <!-- CAROUSEL END -->

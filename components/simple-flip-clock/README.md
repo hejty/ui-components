@@ -10,18 +10,18 @@ Include `dist/js/main.min.js` on your page
 
 Include in your HTML
 
-    <div class="sfc-number">
-      <ol class="sfc-number__up">
-        <li class="sfc-number__element sfc-number__element--active">
-          <div class="sfc-number__digit">
-            <div class="sfc-number__digit-full">0</div>
+    <div class="buic-sfc-number">
+      <ol class="buic-sfc-number__up">
+        <li class="buic-sfc-number__element buic-sfc-number__element--active">
+          <div class="buic-sfc-number__digit">
+            <div class="buic-sfc-number__digit-full">0</div>
           </div>
         </li>
       </ol>
-      <ol class="sfc-number__down">
-        <li class="sfc-number__element sfc-number__element--active">
-          <div class="sfc-number__digit">
-            <div class="sfc-number__digit-full">0</div>
+      <ol class="buic-sfc-number__down">
+        <li class="buic-sfc-number__element buic-sfc-number__element--active">
+          <div class="buic-sfc-number__digit">
+            <div class="buic-sfc-number__digit-full">0</div>
           </div>
         </li>
       </ol>
@@ -30,7 +30,7 @@ Include in your HTML
 Sample usage
 
     <script>
-      var sfc = new SimpleFlipClock({element: document.querySelector('.sfc-number'), currentNumber: 0});
+      var sfc = new SimpleFlipClock({element: document.querySelector('.buic-sfc-number'), currentNumber: 0});
       sfc.decrement();
     </script>
 

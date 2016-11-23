@@ -35,11 +35,11 @@ limitations under the License.
       box-sizing: border-box;
     }
 
-    .cd-card-container {
+    .buic-cd-card-container {
       margin: 30px auto;
     }
 
-    .cd-card {
+    .buic-cd-card {
       padding: 4px;
       border: solid #8e8e8e 1px;
       background: #FFF;
@@ -56,21 +56,21 @@ limitations under the License.
   <link rel="stylesheet" href="dist/css/default.css">
 </head>
 <body>
-  <div class="cd-card-container">
-    <div class="cd-card">I'm last</div>
-    <div class="cd-card">one more</div>
-    <div class="cd-card">you are almost done</div>
-    <div class="cd-card">out of seven</div>
-    <div class="cd-card">I'm third</div>
-    <div class="cd-card">Oh hi!</div>
-    <div class="cd-card">Swipe me</div>
+  <div class="buic-cd-card-container">
+    <div class="buic-cd-card">I'm last</div>
+    <div class="buic-cd-card">one more</div>
+    <div class="buic-cd-card">you are almost done</div>
+    <div class="buic-cd-card">out of seven</div>
+    <div class="buic-cd-card">I'm third</div>
+    <div class="buic-cd-card">Oh hi!</div>
+    <div class="buic-cd-card">Swipe me</div>
   </div>
 
   <p>API: <button id="js-next-card">Next card</button>, <button id="js-disable-dragging">Disable dragging</button>, <button id="js-enable-dragging">Enable dragging</button></p>
 
   <script src="dist/js/main.min.js"></script>
   <script>
-    var container = document.querySelector('.cd-card-container');
+    var container = document.querySelector('.buic-cd-card-container');
     var cs = new CardDeck({element: container, discardCallback: onDiscard, dragCallback: onDrag, cancelCallback: onCancel});
 
     document.getElementById('js-next-card').addEventListener('click', function() {

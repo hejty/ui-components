@@ -10,11 +10,11 @@ class FlipCard {
     this.duration = duration;
     this.flipped = false;
 
-    this.front = element.querySelector('.fc-box__front');
-    this.back = element.querySelector('.fc-box__back');
+    this.front = element.querySelector('.buic-fc-box__front');
+    this.back = element.querySelector('.buic-fc-box__back');
 
     if (vertical) {
-      this.element.classList.add('fc-box--vertical');
+      this.element.classList.add('buic-fc-box--vertical');
     }
 
     this.front.addEventListener('animationend', this._onAnimationEnd.bind(this));
@@ -37,7 +37,7 @@ class FlipCard {
       return;
     }
 
-    const flippedClass = this.vertical ? 'fc-box--flipped-vertically' : 'fc-box--flipped';
+    const flippedClass = this.vertical ? 'buic-fc-box--flipped-vertically' : 'buic-fc-box--flipped';
 
     this.flipped = !this.flipped;
 
