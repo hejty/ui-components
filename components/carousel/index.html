@@ -12,7 +12,7 @@
       padding: 0;
     }
 
-    .carousel {
+    .buic-carousel {
       width: 400px;
       height: 300px;
       max-width: 100%;
@@ -21,15 +21,15 @@
       border: 3px solid black;
     }
 
-    .carousel__slide {
+    .buic-carousel__slide {
       background-color: palegoldenrod;
     }
 
-    .carousel__slide:nth-child(2) {
+    .buic-carousel__slide:nth-child(2) {
       background-color: darkolivegreen;
     }
 
-    .carousel__slide:nth-child(3) {
+    .buic-carousel__slide:nth-child(3) {
       background-color: navajowhite;
     }
 
@@ -37,16 +37,16 @@
 </head>
 <body>
 
-<div class="carousel">
-  <div class="carousel__viewport">
-    <div class="carousel__slider">
-      <div class="carousel__slide">
+<div class="buic-carousel">
+  <div class="buic-carousel__viewport">
+    <div class="buic-carousel__slider">
+      <div class="buic-carousel__slide">
         1st slide
       </div>
-      <div class="carousel__slide">
+      <div class="buic-carousel__slide">
         2nd slide
       </div>
-      <div class="carousel__slide">
+      <div class="buic-carousel__slide">
         Last slide
       </div>
     </div>
@@ -65,7 +65,7 @@
 </div>
 
 <script>
-  var carousel = new Carousel({element: document.querySelector('.carousel'), slideChangeCallback: function(carousel, index) {
+  var carousel = new Carousel({element: document.querySelector('.buic-carousel'), slideChangeCallback: function(carousel, index) {
     console.log('slideChangeCallback fired! Slide index equals', index);
   }});
 

@@ -18,14 +18,14 @@
 $cdWidth: 250px !default;
 $cdHeight: 375px !default;
 
-.cd-card-container {
+.buic-cd-card-container {
   position: relative;
 
   width: $cdWidth;
   height: $cdHeight;
 }
 
-.cd-card {
+.buic-cd-card {
   position: absolute;
   top: 0;
   left: 0;

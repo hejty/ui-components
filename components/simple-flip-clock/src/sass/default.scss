@@ -8,7 +8,7 @@ $sfcNumberBoxWidth: 60px !default;
 $sfcUpHalfBackground: #6f85ff !default;
 $sfcDownHalfBackground: #8b9efd !default;
 
-.sfc-number {
+.buic-sfc-number {
   font-family: $sfcFontFamily;
   width: $sfcNumberBoxWidth;
   height: $sfcNumberBoxHeight;
@@ -83,7 +83,7 @@ $sfcDownHalfBackground: #8b9efd !default;
     width: 100%;
     text-align: center;
 
-    .sfc-number__down & {
+    .buic-sfc-number__down & {
       color: $sfcFontColorDown;
       margin-top: -($sfcNumberBoxHeight / 2);
     }

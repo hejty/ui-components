@@ -11,13 +11,13 @@ Include `dist/js/main.min.js` on your page
 Include in your HTML
 
     
-     <div class="carousel">
-      <div class="carousel__viewport">
-        <div class="carousel__slider">
-          <div class="carousel__slide">
+     <div class="buic-carousel">
+      <div class="buic-carousel__viewport">
+        <div class="buic-carousel__slider">
+          <div class="buic-carousel__slide">
             1st slide
           </div>
-          <div class="carousel__slide">
+          <div class="buic-carousel__slide">
             2nd slide
           </div>
           ...
@@ -27,7 +27,7 @@ Include in your HTML
 
 Sample usage
     <script>
-      const carousel = new Carousel({element: document.querySelector('.carousel')});
+      const carousel = new Carousel({element: document.querySelector('.buic-carousel')});
     </script>
 
 ![result](https://cloud.githubusercontent.com/assets/1231144/20526748/b7265bf4-b0c5-11e6-8560-ff8ed2a93940.gif)
