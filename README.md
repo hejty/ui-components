@@ -12,6 +12,7 @@ Available components:
 - [Doughnut Progress Bar](components/doughnut-progress-bar/README.md)
 - [Dashed Progress Bar](components/dashed-progress-bar/README.md)
 - [Card Deck](components/card-deck/README.md)
+- [Carousel](components/carousel/README.md)
 
 ## License
 
