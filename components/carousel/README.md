@@ -30,7 +30,7 @@ Sample usage
       const carousel = new Carousel({element: document.querySelector('.carousel')});
     </script>
 
-![result](https://i.gyazo.com/ed1f1c71054a939d8e53191928a4704d.gif)
+![result](https://cloud.githubusercontent.com/assets/1231144/20526748/b7265bf4-b0c5-11e6-8560-ff8ed2a93940.gif)
 
 ### Parameters:
     element: dom node with basic structure as specified above
