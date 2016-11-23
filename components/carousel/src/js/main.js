@@ -37,6 +37,10 @@ class Carousel {
   }
 
   goTo(index) {
+    if (this.isDragged) {
+      return;
+    }
+
     if (index !== this.currentIndex && typeof this._slideChangeCallback === 'function') {
       this._slideChangeCallback(this, index);
     }
@@ -99,13 +103,13 @@ class Carousel {
     index = Math.max(1, index);
     index = Math.min(index, this.slidesLength);
 
+    this.isDragged = false;
+
     this.goTo(index);
 
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
     }
-
-    this.isDragged = false;
   }
 
   _update() {
