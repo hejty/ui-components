@@ -21,7 +21,7 @@ class Carousel {
 
     this.enableDragging();
 
-    window.addEventListener('resize', this._updateSlideWidth.bind(this));
+    window.addEventListener('resize', this._onResize.bind(this));
   }
 
   next() {
@@ -43,6 +43,7 @@ class Carousel {
 
     this.currentIndex = index;
     this.slider.style.transform = `translateX(${-(this.currentIndex - 1) * this.slideWidth}px)`;
+    this.lastSlideTranslateX = this.slideWidth * (this.currentIndex - 1);
   }
 
   enableDragging() {
@@ -100,8 +101,6 @@ class Carousel {
 
     this.goTo(index);
 
-    this.lastSlideTranslateX = this.slideWidth * (this.currentIndex - 1);
-
     if (this.rafId) {
       cancelAnimationFrame(this.rafId);
     }
@@ -130,6 +129,16 @@ class Carousel {
 
   _isFirstSlide() {
     return this.currentIndex === 1;
+  }
+
+  _onResize() {
+    const slideWidthBefore = this.slideWidth;
+
+    this._updateSlideWidth();
+
+    if (slideWidthBefore !== this.slideWidth) {
+      this.goTo(this.currentIndex);
+    }
   }
 }
 
