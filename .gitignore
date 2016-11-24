@@ -1,7 +1,4 @@
 node_modules
 .idea
 .editorconfig
-.eslintrc
-.eslintrc-es5
-.scss-lint.yml
 *.map
