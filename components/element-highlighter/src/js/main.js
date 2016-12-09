@@ -14,37 +14,6 @@ class ElementHighlighter {
     this.overlay = null;
   }
 
-  hide(callback) {
-    if (!this.shown) {
-      if (typeof callback === 'function') {
-        callback(null);
-      }
-
-      return;
-    }
-
-    onTransitionEnd(this.overlay, () => {
-      const newContainer = this.element.parentNode;
-
-      // move element to its original place and remove overlay
-      this.placeholder.parentNode.replaceChild(this.element, this.placeholder);
-      newContainer.parentNode.removeChild(newContainer);
-      this.overlay.parentNode.removeChild(this.overlay);
-
-      if (typeof callback === 'function') {
-        callback(this.overlay);
-      }
-
-      // update status
-      this.placeholder = null;
-      this.overlay = null;
-      this.shown = false;
-    });
-
-    // start animation
-    this.overlay.classList.remove(OVERLAY_ACTIVE_CLASS);
-  }
-
   show(callback) {
     if (this.shown) {
       if (typeof callback === 'function') {
@@ -54,6 +23,7 @@ class ElementHighlighter {
       return;
     }
 
+    // setup
     const containerBcr = this.container.getBoundingClientRect();
     const elementBcr = this.element.getBoundingClientRect();
     const elementStyles = window.getComputedStyle(this.element);
@@ -63,7 +33,7 @@ class ElementHighlighter {
     };
     const elementParent = this.element.parentNode;
 
-    // replace original position of the highlighted element with a placeholder
+    // replace original highlighted element with a placeholder
     const placeholder = document.createElement('div');
 
     placeholder.style.width = elementBcr.width + 'px';
@@ -93,16 +63,16 @@ class ElementHighlighter {
     newContainer.style.left = (elementBcr.left + windowScrollPos.left) + 'px';
     newContainer.style.top = (elementBcr.top + windowScrollPos.top) + 'px';
 
-    // put all elements together
+    // put everything together
     newContainer.appendChild(this.element);
     document.body.appendChild(overlay);
     document.body.appendChild(newContainer);
 
-    // start animation
     if (typeof callback === 'function') {
       onTransitionEnd(overlay, () => callback(overlay));
     }
 
+    // start animation
     overlay.getBoundingClientRect();
     overlay.classList.add(OVERLAY_ACTIVE_CLASS);
 
@@ -110,6 +80,39 @@ class ElementHighlighter {
     this.overlay = overlay;
     this.placeholder = placeholder;
     this.shown = true;
+  }
+
+  hide(callback) {
+    if (!this.shown) {
+      if (typeof callback === 'function') {
+        callback(null);
+      }
+
+      return;
+    }
+
+    onTransitionEnd(this.overlay, () => {
+      const newContainer = this.element.parentNode;
+
+      // move highlighted element to its original place in DOM
+      this.placeholder.parentNode.replaceChild(this.element, this.placeholder);
+
+      // remove helper container and overlay
+      newContainer.parentNode.removeChild(newContainer);
+      this.overlay.parentNode.removeChild(this.overlay);
+
+      if (typeof callback === 'function') {
+        callback(this.overlay);
+      }
+
+      // update status
+      this.placeholder = null;
+      this.overlay = null;
+      this.shown = false;
+    });
+
+    // start animation
+    this.overlay.classList.remove(OVERLAY_ACTIVE_CLASS);
   }
 
 }
