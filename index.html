@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
   <meta name="theme-color" content="#FAFAFA">
   <title>Library of UI components</title>
-  <link rel="stylesheet" href="https://styleguide.brainly.com/44.0.6/style-guide.css"/>
+  <link rel="stylesheet" href="https://styleguide.brainly.com/67.0.0/style-guide.css"/>
 
   <link rel="stylesheet" href="components/card-deck/dist/css/default.css">
   <script src="components/card-deck/dist/js/main.min.js"></script>
@@ -101,6 +101,7 @@
     .buic-fc-box {
       width: 100%;
       height: 100%;
+      z-index: 1;
     }
     .buic-fc-box__front,
     .buic-fc-box__back {
@@ -251,7 +252,7 @@
             <div class="buic-carousel__slider">
               <div class="buic-carousel__slide">
                 <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
-                  1st slide
+                  Swipe &rarr;
                 </p>
               </div>
               <div class="buic-carousel__slide">
@@ -313,31 +314,67 @@
   <h2>Element Highlighter</h2>
   <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/element-highlighter/README.md">Docs</a></p>
 
-  <div class="eh-demo-box">
-    <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">Click me</p>
+  <div class="eh-demo-container sg-box sg-box--mint sg-box--no-border">
+    <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">Click!</p>
+
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=1">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=2">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=3">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=4">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=5">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=6">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=7">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://unsplash.it/240/240/?random&time=8">
+    </div>
   </div>
 
   <style>
-    .eh-demo-box {
+    .eh-demo-container {
       display: flex;
-      align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       text-align: center;
-      height: 300px;
-      background-color: #6ed6a0;
     }
   </style>
 
   <script>
-    var ehElement = document.querySelector('.eh-demo-box');
-    var eh = new ElementHighlighter({element: ehElement, container: document.body});
+    var ehElements = Array.prototype.slice.call(document.querySelectorAll('.eh-demo-container > .sg-avatar'));
+    var ehContent = document.querySelector('main');
 
-    ehElement.addEventListener('click', function() {
-      eh.show(function(overlay) {
-        overlay.addEventListener('click', function ehOverlayClicked() {
-          eh.hide();
-          overlay.removeEventListener('click', ehOverlayClicked);
-        })
+    ehContent.style.transition = 'filter 0.3s ease-in-out';
+    ehContent.style.willChange = 'filter';
+
+    ehElements.forEach(function(ehElement) {
+      var eh = new ElementHighlighter({element: ehElement, container: document.body});
+
+      ehElement.addEventListener('click', function() {
+        ehContent.style.filter = 'blur(5px)';
+        eh.show(function(overlay) {
+          if(!overlay) {
+            return;
+          }
+
+          overlay.addEventListener('click', function ehOverlayClicked() {
+            ehContent.style.filter = '';
+            eh.hide();
+            overlay.removeEventListener('click', ehOverlayClicked);
+          })
+        });
       });
     });
   </script>

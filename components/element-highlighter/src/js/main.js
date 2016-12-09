@@ -57,6 +57,10 @@ class ElementHighlighter {
     const containerBcr = this.container.getBoundingClientRect();
     const elementBcr = this.element.getBoundingClientRect();
     const elementStyles = window.getComputedStyle(this.element);
+    const windowScrollPos = {
+      left: window.scrollX,
+      top: window.scrollY
+    };
     const elementParent = this.element.parentNode;
 
     // replace original position of the highlighted element with a placeholder
@@ -64,7 +68,10 @@ class ElementHighlighter {
 
     placeholder.style.width = elementBcr.width + 'px';
     placeholder.style.height = elementBcr.height + 'px';
-    placeholder.style.margin = elementStyles.margin;
+    placeholder.style.marginLeft = elementStyles.marginLeft;
+    placeholder.style.marginRight = elementStyles.marginRight;
+    placeholder.style.marginTop = elementStyles.marginTop;
+    placeholder.style.marginBottom = elementStyles.marginBottom;
 
     elementParent.replaceChild(placeholder, this.element);
 
@@ -74,8 +81,8 @@ class ElementHighlighter {
     overlay.classList.add(OVERLAY_CLASS);
     overlay.style.width = containerBcr.width + 'px';
     overlay.style.height = containerBcr.height + 'px';
-    overlay.style.left = containerBcr.left + 'px';
-    overlay.style.top = containerBcr.top + 'px';
+    overlay.style.left = (containerBcr.left + windowScrollPos.left) + 'px';
+    overlay.style.top = (containerBcr.top + windowScrollPos.top) + 'px';
 
     // create a container for highlighted element to make sure it maintains size
     const newContainer = document.createElement('div');
@@ -83,8 +90,8 @@ class ElementHighlighter {
     newContainer.classList.add(NEW_CONTAINER_CLASS);
     newContainer.style.width = elementBcr.width + 'px';
     newContainer.style.height = elementBcr.height + 'px';
-    newContainer.style.left = elementBcr.left + 'px';
-    newContainer.style.top = elementBcr.top + 'px';
+    newContainer.style.left = (elementBcr.left + windowScrollPos.left) + 'px';
+    newContainer.style.top = (elementBcr.top + windowScrollPos.top) + 'px';
 
     // put all elements together
     newContainer.appendChild(this.element);

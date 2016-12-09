@@ -1,3 +1,1 @@
-.buic-eh-overlay{z-index:101;position:absolute;background:black;opacity:0;-webkit-transition:opacity 0.3s ease-in-out;transition:opacity 0.3s ease-in-out}.buic-eh-overlay--active{opacity:0.3}.buic-eh-container{z-index:102;position:absolute}.buic-eh-container>*{margin:0 !important}
-
-/*# sourceMappingURL=default.css.map */
+.buic-eh-overlay{z-index:101;position:absolute;background:#000;opacity:0;-webkit-transition:opacity 0.3s ease-in-out;transition:opacity 0.3s ease-in-out;will-change:opacity}.buic-eh-overlay--active{opacity:0.3}.buic-eh-container{z-index:102;position:absolute}.buic-eh-container>*{margin:0 !important}
