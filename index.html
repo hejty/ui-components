@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="components/carousel/dist/css/default.css">
   <script src="components/carousel/dist/js/main.min.js"></script>
 
+  <link rel="stylesheet" href="components/element-highlighter/dist/css/default.css">
+  <script src="components/element-highlighter/dist/js/main.min.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -304,6 +307,42 @@
   </script>
 
   <!-- CAROUSEL END -->
+
+  <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+
+  <h2>Element Highlighter</h2>
+  <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/element-highlighter/README.md">Docs</a></p>
+
+  <div class="eh-demo-box">
+    <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">Click me</p>
+  </div>
+
+  <style>
+    .eh-demo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 300px;
+      background-color: #6ed6a0;
+    }
+  </style>
+
+  <script>
+    var ehElement = document.querySelector('.eh-demo-box');
+    var eh = new ElementHighlighter({element: ehElement, container: document.body});
+
+    ehElement.addEventListener('click', function() {
+      eh.show(function(overlay) {
+        overlay.addEventListener('click', function ehOverlayClicked() {
+          eh.hide();
+          overlay.removeEventListener('click', ehOverlayClicked);
+        })
+      });
+    });
+  </script>
+
+  <!-- ELEMENT HIGHLIGHTER END -->
 
 </main>
 

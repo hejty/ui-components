@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Template</title>
+  <title>Element Highlighter</title>
   <link href="dist/css/default.css" rel="stylesheet" media="screen"/>
   <script src="dist/js/main.min.js"></script>
 
@@ -14,60 +14,64 @@
     body {
       margin: 0;
       height: 100vh;
+      border: solid red 5px;
     }
 
     #container {
-      width: 100%;
-      height: 50%;
       padding: 50px;
-      border: solid gray 5px;
+      margin: 50px;
+      border: solid blue 5px;
       display: flex;
+      flex-wrap: wrap;
     }
 
     .box {
       width: 200px;
       height: 200px;
-      border: solid black 1px;
+      margin: 5px;
+      border: solid green 5px;
       background: white;
     }
   </style>
 </head>
 <body>
 
-<div id="container" class="">
+<div id="container">
   <div class="box">One</div>
   <div class="box">Two</div>
   <div class="box">Three</div>
+  <div class="box">Four</div>
+  <div class="box">Five</div>
 </div>
 
 <script>
-  var conteiner = document.querySelector('#container');
+  var container = document.querySelector('#container');
   var boxes = document.querySelectorAll('.box');
 
   var pickers = Array.from(boxes).map(function(box) {
-    return new ElementPicker({
+    return new ElementHighlighter({
       element: box,
-      container: conteiner
+      container: container
     });
   });
-  var currentPicker = null;
-  var idx = 0;
 
-  function nextPicker() {
-    if(currentPicker) {
-      currentPicker.hide(function() {
-        pickers[idx].show();
-      });
-    } else {
-      pickers[idx].show();
-    }
+  var currentPicker = pickers[0];
+  var idx = 1;
 
-    currentPicker = pickers[idx];
+  currentPicker.show();
+
+  function nextStep() {
+    var nextPicker = pickers[idx];
+
+    currentPicker.hide(function () {
+      setTimeout(nextPicker.show.bind(nextPicker), 300);
+    });
+
+    currentPicker = nextPicker;
     idx = (idx + 1) % pickers.length;
   }
 
-  nextPicker();
-  setInterval(nextPicker, 2000);
+  setInterval(nextStep, 2000);
 </script>
 
 
