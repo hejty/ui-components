@@ -1,0 +1,23 @@
+$buicEhOverlayColor: #000000;
+
+.buic-eh-overlay {
+  z-index: 101;
+  position: absolute;
+  background: $buicEhOverlayColor;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  will-change: opacity;
+
+  &--active {
+    opacity: 0.3;
+  }
+}
+
+.buic-eh-container {
+  z-index: 102;
+  position: absolute;
+
+  > * {
+    margin: 0 !important;// sass-lint:disable-line no-important
+  }
+}
