@@ -45,7 +45,7 @@ class ElementHighlighter {
 
     elementParent.replaceChild(placeholder, this.element);
 
-    // crate an overlay
+    // create an overlay
     const overlay = document.createElement('div');
 
     overlay.classList.add(OVERLAY_CLASS);
