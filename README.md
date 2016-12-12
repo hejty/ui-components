@@ -20,6 +20,7 @@ Available components:
 - [Dashed Progress Bar](components/dashed-progress-bar/README.md)
 - [Card Deck](components/card-deck/README.md)
 - [Carousel](components/carousel/README.md)
+- [Element Highlighter](components/element-highlighter/README.md)
 
 ## License
 
