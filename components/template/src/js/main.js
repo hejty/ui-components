@@ -1,6 +1,7 @@
 class Template {
-  constructor({element}) {
+  constructor({element, somethingCallback}) {
     this.element = element;
+    this.somethingCallback = somethingCallback;
   }
 }
 

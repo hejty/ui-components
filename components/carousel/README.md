@@ -1,15 +1,14 @@
 # Carousel
 
-Library for simple carousel
+Simple swipable carousel component
+
+![carousel in action](https://cloud.githubusercontent.com/assets/1231144/20526748/b7265bf4-b0c5-11e6-8560-ff8ed2a93940.gif)
 
 ## Basic usage
 
-Include `dist/css/default.css` on your page
+Include `dist/css/default.css` and `dist/js/main.min.js` on your page.
 
-Include `dist/js/main.min.js` on your page
-
-Include in your HTML
-
+Create basic structure:
     
      <div class="buic-carousel">
       <div class="buic-carousel__viewport">
@@ -25,23 +24,22 @@ Include in your HTML
       </div>
     </div>
 
-Sample usage
+Initialize component:
+
     <script>
       const carousel = new Carousel({element: document.querySelector('.buic-carousel')});
     </script>
 
-![result](https://cloud.githubusercontent.com/assets/1231144/20526748/b7265bf4-b0c5-11e6-8560-ff8ed2a93940.gif)
-
 ### Parameters:
-    element: dom node with basic structure as specified above
-    slideChangeCallback: function called when slide is changed. Contains information about the carousel and index of current slide
+    element: DOM node with basic structure as specified above (.buic-carousel)
+    slideChangeCallback: function called when slide has changed. Callback will be called with Carousel object as a first param and current slide index as a second param
 
 ### Methods
         
-    disableDragging() - disable possibility to drag slides using touch/mouse
-    enableDragging() - enable possibility to drag slides using touch/mouse
+    disableDragging() - disable possibility of dragging slides using touch/mouse
+    enableDragging() - enable possibility of dragging slides using touch/mouse
     prev() - go to the previous slide
     next() - go to the next slide
-    goTo(number) - go to the slide you want
+    goTo(number) - go to the slide with provided index
 
 [DEMO](https://brainly.github.io/ui-components/components/carousel/)
