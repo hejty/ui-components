@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
   <meta name="theme-color" content="#FAFAFA">
   <title>Library of UI components</title>
-  <link rel="stylesheet" href="https://styleguide.brainly.com/44.0.6/style-guide.css"/>
+  <link rel="stylesheet" href="https://styleguide.brainly.com/67.0.0/style-guide.css"/>
 
   <link rel="stylesheet" href="components/card-deck/dist/css/default.css">
   <script src="components/card-deck/dist/js/main.min.js"></script>
@@ -24,6 +24,9 @@
 
   <link rel="stylesheet" href="components/carousel/dist/css/default.css">
   <script src="components/carousel/dist/js/main.min.js"></script>
+
+  <link rel="stylesheet" href="components/element-highlighter/dist/css/default.css">
+  <script src="components/element-highlighter/dist/js/main.min.js"></script>
 
   <style>
     * {
@@ -44,8 +47,15 @@
 <main>
 
   <h1 class="sg-header-primary">Library of UI components</h1>
-  <p class="sg-text">Small library of various UI components that we are, or were, using at <a class="sg-link" href="http://brainly.com">Brainly</a>.</p>
-  <p class="sg-text">All components have no external dependencies, use bare-bones web platform, are written in ES6 and, most importantly, have great performance. Note that we <span class="sg-text sg-text--emphasised">do not</span> support anything older than IE11.</p>
+  <p class="sg-text">Various UI components that we are (or were) using at <a class="sg-link" href="http://brainly.com">Brainly</a>.</p>
+  <p class="sg-text">Features:</p>
+  <ul>
+      <li class="sg-text">no external dependencies (easy to use!),</li>
+      <li class="sg-text">minimal styling (easy to customize!),</li>
+      <li class="sg-text">great performance.</li>
+  </ul>
+  <p class="sg-text sg-text--small"><span class="sg-text sg-text--mustard sg-text--small">Note!</span> We do not support anything older than IE11.</p>
+  <p class="sg-text sg-text--small"><span class="sg-text sg-text--mustard sg-text--small">Note!</span> Demos below are styled using our styleguide to be more appealing, but most of the components by default do not enforce any specific appearance.</p>
 
   <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
 
@@ -98,6 +108,7 @@
     .buic-fc-box {
       width: 100%;
       height: 100%;
+      z-index: 1;
     }
     .buic-fc-box__front,
     .buic-fc-box__back {
@@ -248,7 +259,7 @@
             <div class="buic-carousel__slider">
               <div class="buic-carousel__slide">
                 <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">
-                  1st slide
+                  Swipe &rarr;
                 </p>
               </div>
               <div class="buic-carousel__slide">
@@ -304,6 +315,78 @@
   </script>
 
   <!-- CAROUSEL END -->
+
+  <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+
+  <h2>Element Highlighter</h2>
+  <p><a class="sg-link" href="https://github.com/brainly/ui-components/blob/master/components/element-highlighter/README.md">Docs</a></p>
+
+  <div class="eh-demo-container sg-box sg-box--mint sg-box--no-border">
+    <p class="sg-text-bit sg-text-bit--not-responsive sg-text-bit--xlarge sg-text-bit--light">Click!</p>
+
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?cat">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?dog">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?tree">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?camera">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?lady">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?man">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?sunset">
+    </div>
+    <div class="sg-avatar sg-avatar--xxxlarge sg-avatar--with-border">
+      <img class="sg-avatar__image" src="https://source.unsplash.com/240x240/?box">
+    </div>
+  </div>
+
+  <style>
+    .eh-demo-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    var ehElements = Array.prototype.slice.call(document.querySelectorAll('.eh-demo-container > .sg-avatar'));
+    var ehContent = document.querySelector('main');
+
+    ehContent.style.transition = 'filter 0.3s ease-in-out';
+    ehContent.style.willChange = 'filter';
+
+    ehElements.forEach(function(ehElement) {
+      var eh = new ElementHighlighter({element: ehElement, container: document.body});
+
+      ehElement.addEventListener('click', function() {
+        ehContent.style.filter = 'blur(5px)';
+        eh.show(function(overlay) {
+          if(!overlay) {
+            return;
+          }
+
+          overlay.addEventListener('click', function ehOverlayClicked() {
+            ehContent.style.filter = '';
+            eh.hide();
+            overlay.removeEventListener('click', ehOverlayClicked);
+          })
+        });
+      });
+    });
+  </script>
+
+  <!-- ELEMENT HIGHLIGHTER END -->
 
 </main>
 

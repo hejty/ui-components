@@ -1,15 +1,15 @@
 {
   "name": "ui-components",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "js-lint": "eslint components/**/src/js/",
-    "sass-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml  -v -q components/**/src/sass/*.scss",
+    "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml  -v -q 'components/**/*.scss'",
     "start": "http-server .",
     "watch": "gulp build && npm start & gulp watch",
     "build": "gulp build",
-    "test": "npm run js-lint -s && npm run sass-lint -s",
+    "test": "npm run js-lint -s && npm run scss-lint -s",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
@@ -30,6 +30,7 @@
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
+    "http-server": "^0.9.0",
     "sass-lint": "^1.10.2",
     "webpack": "^1.12.15"
   }

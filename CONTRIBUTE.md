@@ -1,3 +1,7 @@
+# Requirement
+
+ - gulp 
+ 
 # Contribute
 
 - ES6 + SASS
@@ -5,6 +9,8 @@
 - testing: `npm test`
 - developing: `gulp watch`
 - building: `gulp build --production-build`
+
+##### Note: Before commit run `gulp build -- production-build` 
 
 # Version update
 
